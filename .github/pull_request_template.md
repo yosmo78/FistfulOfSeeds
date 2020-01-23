@@ -2,9 +2,12 @@
 
 Please include a summary of the change or which issue is fixed. Please also include relevant motivation and context. If any, List any dependencies that are required for this change.
 
-### If relavant, otherwise put N/A
+
+### Bug Fix 
 
 Fixes # (issue)
+
+If relavant, otherwise put N/A
 
 ## Type of change
 
