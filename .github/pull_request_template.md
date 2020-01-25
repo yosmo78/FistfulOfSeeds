@@ -11,10 +11,11 @@ If relavant, otherwise put N/A
 
 ## Type of change
 
-Please delete options that are not relevant.
+Check relevent box by checking box [X]. 
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
+- [ ] Change (changed a feature, see breaking change below for special case)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 
 # How Has This Been Tested?
@@ -34,4 +35,7 @@ Operating System, application test was performed in(most likely unity)
 - [ ] I have commented my code in hard-to-understand areas
 - [ ] My changes generate no new warnings
 - [ ] I have at least compiled and ran my code
-- [ ] Any dependent changes have been merged and published in downstream modules
+
+# Dependencies:
+
+List out any new project dependencies, for 99% of the PRs will be 'N/A'
