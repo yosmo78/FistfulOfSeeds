@@ -9,14 +9,9 @@ public class PlayerAttack : MonoBehaviour
 
     public Transform attackPos;
     public LayerMask whatIsEnemies;
-    //public Animator playerAnim;
+    public Animator animator;
     public float attackRange;
     public int damage;
-
-    private void FixedUpdate()
-    {
-        
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +28,15 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 //camAnim.SetTrigger("shake");
-                //playerAnim.setTrigger("attack");
+                animator.SetTrigger("Attack");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<enemy1Path>().TakeDamage(damage);
                 }
+                timeBtwAttack = startTimeBtwAttack;
             }
-            timeBtwAttack = startTimeBtwAttack;
         }
         else
         {
