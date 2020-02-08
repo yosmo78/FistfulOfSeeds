@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DevScene2.unity
     guid: 37c639abca44bc344a5ca565ad58a7b1
+  - enabled: 1
+    path: Assets/TeleportScene.unity
+    guid: 011dc76dd6e26ab4fbd54417077b07ae
   m_configObjects: {}

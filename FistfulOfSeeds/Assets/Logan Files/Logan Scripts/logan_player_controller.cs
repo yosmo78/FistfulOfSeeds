@@ -27,6 +27,7 @@ public class logan_player_controller : MonoBehaviour
     {
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
+        DontDestroyOnLoad(transform.gameObject);
     }
 
     void FixedUpdate()
