@@ -9,6 +9,7 @@ public class logan_player_controller : MonoBehaviour
     public float speed;
     public float jumpForce;
     private float moveInput;
+    private float verticalMotion;
 
     private Rigidbody2D rb;
 
@@ -30,11 +31,12 @@ public class logan_player_controller : MonoBehaviour
 
     void FixedUpdate()
     {
-
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
 
         if (facingRight == false && moveInput > 0)
         {
@@ -48,28 +50,37 @@ public class logan_player_controller : MonoBehaviour
 
     void Update()
     {
+        if (rb.velocity.y < 0)
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", true);
+        }
+
         if (moveInput != 0)
         {
-            //animator.SetFloat("Speed", 1);
+            animator.SetFloat("Speed", 1);
         }
         if (moveInput == 0)
         {
-            //animator.SetFloat("Speed", 0);
+            animator.SetFloat("Speed", 0);
         }
         if (isGrounded == true)
         {
             extraJumps = extraJumpsValue;
-            //animator.SetBool("isJumping", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
-            //animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isJumping", true);
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && isGrounded == true)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
+            animator.SetBool("isJumping", true);
         }
     }
 
