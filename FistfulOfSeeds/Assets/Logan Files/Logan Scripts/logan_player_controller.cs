@@ -23,11 +23,22 @@ public class logan_player_controller : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
 
+    private static bool existsInScene;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
-        DontDestroyOnLoad(transform.gameObject);
+
+        if (!existsInScene)
+        {
+            existsInScene = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()
