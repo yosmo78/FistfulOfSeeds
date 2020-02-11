@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScript : MonoBehaviour
 {
-    public string sceneToLoad;
-    public string locationName;
+    public string loadingName;
+    public string sceneTo;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +24,9 @@ public class LoadingScript : MonoBehaviour
     {
         if(collision.gameObject.name == "Player" )
         {
-            GlobalSceneChange.locationFrom = locationName;
+            GlobalSceneChange.locationFrom = loadingName;
             GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(sceneToLoad);
+            SceneManager.LoadScene(sceneTo);
         }
     }
 }

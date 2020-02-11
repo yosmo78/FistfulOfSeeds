@@ -1180,8 +1180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5607e4467eef4854ca5fb4832dbde0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: DevScene1
-  locationName: Vines
+  loadingName: Vines
+  sceneTo: DevScene1
 --- !u!1 &1584878883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1276,7 @@ GameObject:
   - component: {fileID: 1654505597}
   - component: {fileID: 1654505596}
   m_Layer: 0
-  m_Name: StartPoint
+  m_Name: levelEndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
