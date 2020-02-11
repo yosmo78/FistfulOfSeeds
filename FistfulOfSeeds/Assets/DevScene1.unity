@@ -1679,7 +1679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5607e4467eef4854ca5fb4832dbde0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: TeleportScene
+  sceneToLoad: TeleportScene
+  locationName: levelEnd
 --- !u!483693784 &1162659521
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -1903,6 +1904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312f9b95524976f4bb98c56219524c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneFrom: TeleportScene
+  pointNameFrom: Vines
 --- !u!4 &1668392996
 Transform:
   m_ObjectHideFlags: 0
