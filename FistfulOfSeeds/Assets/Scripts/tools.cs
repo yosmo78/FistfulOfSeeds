@@ -24,7 +24,6 @@ public class tools : MonoBehaviour
     	if(gameObject.name == "scythe")
     	{
     		GMScript.currentTool = "scythe";
-            seedInvObj.transform.position = new Vector2(-6, 4);
     	}
 
     	else if(gameObject.name == "seeds")
@@ -35,7 +34,6 @@ public class tools : MonoBehaviour
         else if(gameObject.name == "bucket")
         {
             GMScript.currentTool = "bucket";
-            seedInvObj.transform.position = new Vector2(-6, 4);
         }
 
         cursorObj.transform.position = transform.position;
