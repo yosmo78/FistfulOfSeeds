@@ -19,9 +19,12 @@ public class PlayerAttack : MonoBehaviour
     private float invinciTimeRem = 0;
     public bool invinciBool = false;
 
+    Vector3 startPos;
+
     // Start is called before the first frame update
     void Start()
     {
+        startPos = this.transform.position;
         healthRem = health;
         invinciTimeRem = invinciTime;
         
@@ -53,12 +56,17 @@ public class PlayerAttack : MonoBehaviour
 
         if (invinciBool == true)
         {
+            int enemyLayer = LayerMask.NameToLayer("Enemy");
+            int playerLayer = LayerMask.NameToLayer("Player");
+            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, true);
             invinciTime -= Time.deltaTime;
 
             if (invinciTime <= 0)
             {
                 invinciTime = invinciTimeRem;
                 invinciBool = false;
+                animator.SetBool("isHurt", false);
+                Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
             }
         }
     }
@@ -75,12 +83,15 @@ public class PlayerAttack : MonoBehaviour
         {
             health--;
             invinciBool = true;
+            animator.SetBool("isHurt", true);
 
             if (health <= 0)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 health = healthRem;
                 invinciBool = false;
+                this.transform.position = startPos;
+                animator.SetBool("isHurt", false);
             }
         }
         
