@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563682794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.201, y: -0.031, z: 0}
+  m_LocalPosition: {x: 0.26, y: -0.031, z: 0}
   m_LocalScale: {x: 0.14470997, y: 0.14470997, z: 0.14470997}
   m_Children: []
   m_Father: {fileID: 1727272534}
@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645939787}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.014, y: -0.165, z: 0}
+  m_LocalPosition: {x: 0.019, y: -0.356, z: 0}
   m_LocalScale: {x: 1.0875024, y: 1.2794145, z: 1.2794145}
   m_Children: []
   m_Father: {fileID: 1727272534}
@@ -935,12 +935,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e51caf8c163f6d4faa04521c6a5ec10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.33, y: 0.32}
+  m_Size: {x: 0.5, y: 0.85}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -959,18 +959,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
+  m_Offset: {x: 0.0033038557, y: 0.0077124834}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.33, y: 0.32}
-    newSize: {x: 0.33, y: 0.32}
+    oldSize: {x: 0.5, y: 0.85}
+    newSize: {x: 0.5, y: 0.85}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.22}
+  m_Size: {x: 0.3189392, y: 0.7377628}
   m_EdgeRadius: 0
 --- !u!50 &1727272532
 Rigidbody2D:
@@ -984,7 +984,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 2.1011434
+  m_Mass: 5.800708
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1727272535}
   speed: 5
-  jumpForce: 10
+  jumpForce: 15
   groundCheck: {fileID: 645939788}
   checkRadius: 0.5
   whatIsGround:
@@ -1022,8 +1022,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727272529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.78, y: 1.42, z: -5.882422}
-  m_LocalScale: {x: 6.910373, y: 6.910373, z: 6.910373}
+  m_LocalPosition: {x: -4.228, y: 1.83, z: -5.882422}
+  m_LocalScale: {x: 4.961648, y: 4.9685583, z: 6.910373}
   m_Children:
   - {fileID: 645939788}
   - {fileID: 563682795}
@@ -1067,7 +1067,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   animator: {fileID: 1727272535}
-  attackRange: 1
+  attackRange: 1.5
   damage: 1
   health: 3
   invinciTime: 1
