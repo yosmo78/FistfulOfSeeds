@@ -1205,8 +1205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3572f677d7c6b324c95d67092c6ab530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingName: 
-  sceneTo: 
+  loadingName: FarmExit
+  sceneTo: DevScene1
 --- !u!61 &1203705021
 BoxCollider2D:
   m_ObjectHideFlags: 0
