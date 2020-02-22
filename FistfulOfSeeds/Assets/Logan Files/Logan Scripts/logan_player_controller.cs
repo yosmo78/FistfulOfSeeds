@@ -11,7 +11,7 @@ public class logan_player_controller : MonoBehaviour
     private float moveInput;
     private float verticalMotion;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     private bool facingRight = true;
 
