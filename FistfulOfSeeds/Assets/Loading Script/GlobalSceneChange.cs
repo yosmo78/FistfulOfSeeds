@@ -8,6 +8,12 @@ public class GlobalSceneChange : MonoBehaviour
     public static string locationFrom;
     // Start is called before the first frame update
 
+    private void Awake()
+    {
+        sceneFrom = null;
+        locationFrom = null;
+    }
+
     void Start()
     {
         

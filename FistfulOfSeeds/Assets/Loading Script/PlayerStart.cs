@@ -9,9 +9,10 @@ public class PlayerStart : MonoBehaviour
     public string sceneFrom;
     public string pointNameFrom;
     // Start is called before the first frame update
+
     void Start()
     {
-        if(GlobalSceneChange.sceneFrom.Equals(sceneFrom) &&
+        if(GlobalSceneChange.sceneFrom != null && GlobalSceneChange.sceneFrom.Equals(sceneFrom) &&
             GlobalSceneChange.locationFrom.Equals(pointNameFrom))
         {
             player = FindObjectOfType<logan_player_controller>();
