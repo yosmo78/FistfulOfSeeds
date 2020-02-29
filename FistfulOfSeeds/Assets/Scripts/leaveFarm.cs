@@ -26,7 +26,9 @@ public class leaveFarm : MonoBehaviour
 
         player.rb.bodyType = RigidbodyType2D.Dynamic;
         GlobalSceneChange.locationFrom = loadingName;
-        GlobalSceneChange.sceneFrom = "Farm";
+        GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
+        Debug.Log("Location From:" +GlobalSceneChange.locationFrom);
+        Debug.Log("Scene From: " + GlobalSceneChange.sceneFrom);
         SceneManager.LoadScene(sceneTo);
     }
 }
