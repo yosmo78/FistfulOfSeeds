@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public Animator animator;
+    public Gizmos attackGizmo;
     public float attackRange;
     public int damage;
     public int health = 3;
@@ -39,13 +40,30 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 //camAnim.SetTrigger("shake");
-                animator.SetTrigger("Attack");
+                //animator.SetTrigger("Attack");
+                GameObject.Find("Attack").GetComponent<Animator>().SetTrigger("Attacking");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<enemy1Path>().TakeDamage(damage);
+                    try
+                    {
+                        enemiesToDamage[i].GetComponent<enemy1Path>().TakeDamage(damage);
+                    }
+                    catch
+                    {
+                        Debug.LogError("enemy not found");
+                    }
+                    try
+                    {
+                        enemiesToDamage[i].GetComponent<Enemy_Damage>().TakeDamage(damage);
+                    }
+                    catch
+                    {
+                        Debug.LogError("enemy not found");
+                    }
                 }
+                
                 timeBtwAttack = startTimeBtwAttack;
             }
         }
@@ -84,6 +102,7 @@ public class PlayerAttack : MonoBehaviour
             health--;
             invinciBool = true;
             animator.SetBool("isHurt", true);
+            animator.SetTrigger("Hurt");
 
             if (health <= 0)
             {
@@ -98,9 +117,10 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        enemy1Path enemy = collision.collider.GetComponent<enemy1Path>();
+        enemy1Path enemy1 = collision.collider.GetComponent<enemy1Path>();
+        Enemy_Damage enemy2 = collision.collider.GetComponent<Enemy_Damage>();
 
-        if (enemy != null)
+        if (enemy1 != null || enemy2 != null)
         {
             Hurt();
         }
