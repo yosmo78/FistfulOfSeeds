@@ -13,10 +13,14 @@ public class PlayerStart : MonoBehaviour
 
     void Start()
     {
-        if(GlobalSceneChange.sceneFrom != null && GlobalSceneChange.sceneFrom.Equals(sceneFrom) &&
+        
+        if( GlobalSceneChange.sceneFrom.Equals(sceneFrom) &&
             GlobalSceneChange.locationFrom.Equals(pointNameFrom))
         {
+            Debug.Log(GlobalSceneChange.sceneFrom);
+            Debug.Log(GlobalSceneChange.locationFrom);
             player = FindObjectOfType<logan_player_controller>();
+            Debug.Log(player);
             player.transform.position = transform.position;
 
             if(!FindObjectOfType<CameraFollow>().isFollowing)

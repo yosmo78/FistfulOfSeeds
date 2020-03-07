@@ -23,7 +23,12 @@ public class logan_player_controller : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
 
-    private static bool existsInScene;
+    public static bool existsInScene;
+
+    static logan_player_controller()
+    {
+        existsInScene = false;
+    }
 
     void Start()
     {
