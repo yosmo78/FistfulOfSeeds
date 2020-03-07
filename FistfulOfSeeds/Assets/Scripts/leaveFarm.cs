@@ -27,6 +27,9 @@ public class leaveFarm : MonoBehaviour
         player.rb.bodyType = RigidbodyType2D.Dynamic;
         GlobalSceneChange.locationFrom = loadingName;
         GlobalSceneChange.sceneFrom = "Farm";
+        //need to write farm to file here
+        GMScript.write_farm_to_file("farmtmp.txt",GMScript.farm,GMScript.numberOfPlotsWidth,GMScript.numberOfPlotsHeight);
+
         SceneManager.LoadScene(sceneTo);
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class plotTile
 {
-	public Object plot;
+	public Transform plot;
 	public GameObject plant;
 }
+
+
