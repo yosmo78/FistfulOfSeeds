@@ -1,5 +1,0 @@
-NumberOfPlots,2,2
-0,0,T,84.41645,sunFlower,2
-0,1,T,29.79427,potato,2
-1,0,T,61.2879,sunFlower,2
-1,1,F,0,noPlant
