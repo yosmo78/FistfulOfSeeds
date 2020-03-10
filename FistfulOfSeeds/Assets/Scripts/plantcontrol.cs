@@ -73,7 +73,6 @@ public class plantcontrol : MonoBehaviour
     		//Destroy(gameObject);
     		GetComponent<SpriteRenderer>().sprite = noPlantObj;
     	}
-
     	else if((GMScript.currentTool == "sunflower") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
     			&& GMScript.sunFlowerSeeds >= 0)
@@ -82,7 +81,6 @@ public class plantcontrol : MonoBehaviour
     		currentSeed = "sunflower";
     		GMScript.sunFlowerSeeds--;
     	}
-
     	else if((GMScript.currentTool == "carrot") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
     			&& GMScript.carrotSeeds >= 0)
@@ -91,7 +89,6 @@ public class plantcontrol : MonoBehaviour
     		currentSeed = "carrot";
     		GMScript.carrotSeeds--;
     	}
-
     	else if((GMScript.currentTool == "potato") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
     			&& GMScript.potatoSeeds >= 0)
@@ -100,7 +97,6 @@ public class plantcontrol : MonoBehaviour
     		currentSeed = "potato";
     		GMScript.potatoSeeds--;
     	}
-
     	else if (GMScript.currentTool == "bucket")
     	{
     		plotObj.GetComponent<SpriteRenderer>().color = new Color(127, 76, 12);
