@@ -35,9 +35,5 @@ public class CameraFollow : MonoBehaviour
             newPosition.z = transform.position.z + offset.z;
             transform.position = newPosition;
         }
-        else
-        {
-            //Reposition to desired position with transforms
-        }
     }
 }

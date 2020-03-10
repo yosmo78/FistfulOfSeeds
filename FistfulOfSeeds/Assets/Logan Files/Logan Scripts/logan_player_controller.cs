@@ -11,7 +11,7 @@ public class logan_player_controller : MonoBehaviour
     private float moveInput;
     private float verticalMotion;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     private bool facingRight = true;
 
@@ -23,7 +23,12 @@ public class logan_player_controller : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
 
-    private static bool existsInScene;
+    public static bool existsInScene;
+
+    static logan_player_controller()
+    {
+        existsInScene = false;
+    }
 
     void Start()
     {
@@ -43,56 +48,62 @@ public class logan_player_controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
-        moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
-        animator.SetFloat("Speed", Mathf.Abs(moveInput));
-
-        if (facingRight == false && moveInput > 0)
+        if (!rb.bodyType.Equals(RigidbodyType2D.Static)) //make sure the player is allowed to move
         {
-            Flip();
-        }
-        else if (facingRight == true && moveInput < 0)
-        {
-            Flip();
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+
+            moveInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+            animator.SetFloat("Speed", Mathf.Abs(moveInput));
+
+            if (facingRight == false && moveInput > 0)
+            {
+                Flip();
+            }
+            else if (facingRight == true && moveInput < 0)
+            {
+                Flip();
+            }
         }
     }
 
     void Update()
     {
-        if (rb.velocity.y < 0)
+        if (!rb.bodyType.Equals(RigidbodyType2D.Static))
         {
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", true);
-        }
+            if (rb.velocity.y < 0)
+            {
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", true);
+            }
 
-        if (moveInput != 0)
-        {
-            animator.SetFloat("Speed", 1);
-        }
-        if (moveInput == 0)
-        {
-            animator.SetFloat("Speed", 0);
-        }
-        if (isGrounded == true)
-        {
-            extraJumps = extraJumpsValue;
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", false);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-            animator.SetBool("isFalling", false);
-            animator.SetBool("isJumping", true);
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            animator.SetBool("isJumping", true);
+            if (moveInput != 0)
+            {
+                animator.SetFloat("Speed", 1);
+            }
+            if (moveInput == 0)
+            {
+                animator.SetFloat("Speed", 0);
+            }
+            if (isGrounded == true)
+            {
+                extraJumps = extraJumpsValue;
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", false);
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                extraJumps--;
+                animator.SetBool("isFalling", false);
+                animator.SetBool("isJumping", true);
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                animator.SetBool("isJumping", true);
+            }
         }
     }
 

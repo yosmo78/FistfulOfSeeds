@@ -24,6 +24,11 @@ public class LoadingScript : MonoBehaviour
     {
         if(collision.gameObject.name == "Player" )
         {
+            if (sceneTo.Equals("Farm"))
+            {
+                FindObjectOfType<CameraFollow>().isFollowing = false;
+                collision.attachedRigidbody.bodyType = RigidbodyType2D.Static;
+            }
             GlobalSceneChange.locationFrom = loadingName;
             GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(sceneTo);
