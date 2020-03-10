@@ -64,6 +64,11 @@ public class plantcontrol : MonoBehaviour
     		}
     	}
 
+        if(currentSeed == "sunflower" && currentTool == "scythe")
+        {
+            
+        }
+
     }
 
     void OnMouseDown()
