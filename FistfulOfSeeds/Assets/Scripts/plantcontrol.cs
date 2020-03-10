@@ -75,7 +75,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if((GMScript.currentTool == "sunflower") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
-    			&& GMScript.sunFlowerSeeds >= 0)
+    			&& GMScript.sunFlowerSeeds > 0)
     	{
     		GetComponent<SpriteRenderer>().sprite = sunFlower1;
     		currentSeed = "sunflower";
@@ -83,7 +83,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if((GMScript.currentTool == "carrot") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
-    			&& GMScript.carrotSeeds >= 0)
+    			&& GMScript.carrotSeeds > 0)
     	{
     		GetComponent<SpriteRenderer>().sprite = carrot1;
     		currentSeed = "carrot";
@@ -91,7 +91,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if((GMScript.currentTool == "potato") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
-    			&& GMScript.potatoSeeds >= 0)
+    			&& GMScript.potatoSeeds > 0)
     	{
     		GetComponent<SpriteRenderer>().sprite = potato1;
     		currentSeed = "potato";
