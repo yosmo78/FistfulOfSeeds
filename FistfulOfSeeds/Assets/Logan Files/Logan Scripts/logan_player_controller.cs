@@ -9,6 +9,10 @@ public class logan_player_controller : MonoBehaviour
     private float moveInput;
     private float verticalMotion;
     public float bulletForce = 20f;
+
+
+    public Rigidbody2D rb;
+
     private bool facingRight = true;
     private bool isGrounded;
     public float checkRadius;
@@ -18,16 +22,23 @@ public class logan_player_controller : MonoBehaviour
     public float startTimeBtwAttack;
     private float timeBtwAttack = 0;
 
+
     public Animator animator;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public Camera cam;
-    private Rigidbody2D rb;
     public BoxCollider2D player;
     public Transform groundCheck;
     public LayerMask whatIsGround;
 
     Vector2 mousePos;
+
+    public static bool existsInScene;
+
+    static logan_player_controller()
+    {
+        existsInScene = false;
+    }
 
     void Start()
     {
@@ -82,63 +93,69 @@ public class logan_player_controller : MonoBehaviour
 
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        if (timeBtwAttack <= 0)
+        if (!rb.bodyType.Equals(RigidbodyType2D.Static))
         {
-            if (Input.GetButtonDown("Fire1"))
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            if (timeBtwAttack <= 0)
             {
-                Shoot();
-                timeBtwAttack = startTimeBtwAttack;
+                if (Input.GetButtonDown("Fire1"))
+                {
+                   Shoot();
+                   timeBtwAttack = startTimeBtwAttack;
+                }
             }
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
-        }
-
-        if (rb.velocity.y < 0)
-        {
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", true);
-        }
-        if (moveInput != 0)
-        {
-            animator.SetFloat("Speed", 1);
-        }
-        if (moveInput == 0)
-        {
-            animator.SetFloat("Speed", 0);
-        }
-        if (isGrounded == true)
-        {
-            extraJumps = extraJumpsValue;
-            if (rb.velocity.y <= 0)
-            { 
+            else
+            {
+                timeBtwAttack -= Time.deltaTime;
+            }
+            if (rb.velocity.y < 0)
+            {
                 animator.SetBool("isJumping", false);
-                animator.SetBool("isFalling", false);
+                animator.SetBool("isFalling", true);
             }
-        }
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-            animator.SetBool("isFalling", false);
-            animator.SetBool("isJumping", true);
-            animator.SetBool("isCrouching", false);
-        }
-        else if ((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W)) && isGrounded == true)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);
-            animator.SetBool("isCrouching", false);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            animator.SetBool("isCrouching", true);
-            player.size = new Vector2(0.1845391f, 0.112f);
-            player.offset = new Vector2(0.018f, -0.1f);
+
+            if (moveInput != 0)
+            {
+                animator.SetFloat("Speed", 1);
+            }
+            if (moveInput == 0)
+            {
+                animator.SetFloat("Speed", 0);
+            }
+            
+            if (isGrounded == true)
+            {
+               extraJumps = extraJumpsValue;
+               if (rb.velocity.y <= 0)
+               { 
+                   animator.SetBool("isJumping", false);
+                   animator.SetBool("isFalling", false);
+               }
+            }
+            
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                extraJumps--;
+                animator.SetBool("isFalling", false);
+                animator.SetBool("isJumping", true);
+                animator.SetBool("isCrouching", false);
+            }
+            
+            else if ((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W)) && isGrounded == true)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                animator.SetBool("isJumping", true);
+                animator.SetBool("isFalling", false);
+                animator.SetBool("isCrouching", false);
+            }
+            
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                animator.SetBool("isCrouching", true);
+                player.size = new Vector2(0.1845391f, 0.112f);
+                player.offset = new Vector2(0.018f, -0.1f);
+            }
         }
         
     }

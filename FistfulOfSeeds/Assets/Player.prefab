@@ -53,6 +53,7 @@ MonoBehaviour:
   animator: {fileID: 4375808753743460941}
   speed: 5
   jumpForce: 10
+  rb: {fileID: 0}
   groundCheck: {fileID: 4375808754811678294}
   checkRadius: 0.5
   whatIsGround:
@@ -141,8 +142,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1516128061
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -194,6 +195,9 @@ MonoBehaviour:
   animator: {fileID: 4375808753743460941}
   attackRange: 1
   damage: 1
+  health: 3
+  invinciTime: 2
+  invinciBool: 0
 --- !u!1 &4375808754811678289
 GameObject:
   m_ObjectHideFlags: 0
