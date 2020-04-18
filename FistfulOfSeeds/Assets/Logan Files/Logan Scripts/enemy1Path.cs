@@ -6,7 +6,10 @@ public class enemy1Path : MonoBehaviour
 {
     public int health;
     public float speed;
+    private float startSpeed;
     public float distance;
+    private float dazedTime;
+    public float startDazedTime;
 
     private bool movingRight = true;
     //public GameObject bloodEffect;
@@ -17,6 +20,7 @@ public class enemy1Path : MonoBehaviour
     {
         //play a hurt sound
         //Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        dazedTime = startDazedTime;
         health -= damage;
         Debug.Log("damage TAKEN !");
     }
@@ -24,12 +28,21 @@ public class enemy1Path : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        startSpeed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (dazedTime <= 0)
+        {
+            speed = startSpeed;
+        }
+        else
+        {
+            speed = 0;
+            dazedTime -= Time.deltaTime;
+        }
         if (health <= 0)
         {
             Destroy(gameObject);
