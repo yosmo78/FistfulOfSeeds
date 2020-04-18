@@ -8,6 +8,7 @@ public class FarmData : MonoBehaviour
 	public static int numberOfPlotsWidth;
 	public static int numberOfPlotsHeight;
 	public static CropInfo[,] farm = null;
+	public static ulong tickLeft = 0;
 
     static FarmData()
     {

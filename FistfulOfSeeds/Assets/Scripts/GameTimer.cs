@@ -46,25 +46,25 @@ public class GameTimer : MonoBehaviour
     }
 
     /* Set this when loading */
-    public void setTicks(ulong ticks)
+    static public void setTicks(ulong ticks)
     {
         gameTicks = ticks;
     }
 
     /* Get the current number of ticks*/
-    public ulong getTicks()
+    static public ulong getTicks()
     {
         return gameTicks;
     }
 
     /* Reset the timer to 0 */
-    public void resetTimer()
+    static public void resetTimer()
     {
         gameTicks = 0;
     }
 
     /* Get the number of ticks that passed since start */
-    public ulong TicksElapsed(ulong start)
+    static public ulong TicksElapsed(ulong start)
     {
         return gameTicks - start;
     }
