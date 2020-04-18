@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class logan_player_controller : MonoBehaviour
 {
-    public Animator animator;
-
     public float speed;
     public float jumpForce;
     private float moveInput;
     private float verticalMotion;
-
-    private Rigidbody2D rb;
-    public BoxCollider2D player;
-
+    public float bulletForce = 20f;
     private bool facingRight = true;
-
     private bool isGrounded;
-    public Transform groundCheck;
     public float checkRadius;
-    public LayerMask whatIsGround;
-
+    private static bool existsInScene;
     private int extraJumps;
     public int extraJumpsValue;
+    public float startTimeBtwAttack;
+    private float timeBtwAttack = 0;
 
-    private static bool existsInScene;
+    public Animator animator;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public Camera cam;
+    private Rigidbody2D rb;
+    public BoxCollider2D player;
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+
+    Vector2 mousePos;
 
     void Start()
     {
@@ -45,6 +48,11 @@ public class logan_player_controller : MonoBehaviour
 
     void FixedUpdate()
     {
+        Vector2 lookDir = mousePos - (Vector2)firePoint.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg;
+        Debug.Log(angle);
+        firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         moveInput = Input.GetAxis("Horizontal");
@@ -62,11 +70,11 @@ public class logan_player_controller : MonoBehaviour
             rb.velocity = new Vector2(moveInput * 0, rb.velocity.y); ;
         }
 
-        if (facingRight == false && moveInput > 0)
+        if (facingRight == false && (angle < 90 && angle > -90))
         {
             Flip();
         }
-        else if (facingRight == true && moveInput < 0)
+        else if (facingRight == true && (angle > 90 || angle <-90))
         {
             Flip();
         }
@@ -74,6 +82,21 @@ public class logan_player_controller : MonoBehaviour
 
     void Update()
     {
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (timeBtwAttack <= 0)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                timeBtwAttack = startTimeBtwAttack;
+            }
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+
         if (rb.velocity.y < 0)
         {
             animator.SetBool("isJumping", false);
@@ -96,7 +119,7 @@ public class logan_player_controller : MonoBehaviour
                 animator.SetBool("isFalling", false);
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
@@ -104,7 +127,7 @@ public class logan_player_controller : MonoBehaviour
             animator.SetBool("isJumping", true);
             animator.SetBool("isCrouching", false);
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
+        else if ((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W)) && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
             animator.SetBool("isJumping", true);
@@ -118,6 +141,14 @@ public class logan_player_controller : MonoBehaviour
             player.offset = new Vector2(0.018f, -0.1f);
         }
         
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
+
     }
 
     void Flip()

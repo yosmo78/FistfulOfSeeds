@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private float timeBtwAttack;
-    public float startTimeBtwAttack;
-
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public Animator animator;
     public Gizmos attackGizmo;
+
+    private float timeBtwAttack;
+    public float startTimeBtwAttack;
     public float attackRange;
     public int damage;
     public int health = 3;
