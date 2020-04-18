@@ -35,6 +35,7 @@ public class logan_player_controller : MonoBehaviour
 
     public static bool existsInScene;
 
+    /* initialize to false so that no other controllers are made*/
     static logan_player_controller()
     {
         existsInScene = false;
