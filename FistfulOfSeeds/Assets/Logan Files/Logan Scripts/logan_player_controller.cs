@@ -16,7 +16,7 @@ public class logan_player_controller : MonoBehaviour
     private bool facingRight = true;
     private bool isGrounded;
     public float checkRadius;
-    private static bool existsInScene;
+
     private int extraJumps;
     public int extraJumpsValue;
     public float startTimeBtwAttack;
@@ -60,36 +60,39 @@ public class logan_player_controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 lookDir = mousePos - (Vector2)firePoint.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg;
-        Debug.Log(angle);
-        firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
-        moveInput = Input.GetAxis("Horizontal");
-        
-        if (Input.GetKey(KeyCode.DownArrow) == false)
+    	if (!rb.bodyType.Equals(RigidbodyType2D.Static))
         {
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-            animator.SetFloat("Speed", Mathf.Abs(moveInput));
-            animator.SetBool("isCrouching", false);
-            player.size = new Vector2(0.1845391f, 0.22387f);
-            player.offset = new Vector2(-0.01120692f, -0.04815573f);
-        }
-        else
-        {
-            rb.velocity = new Vector2(moveInput * 0, rb.velocity.y); ;
-        }
-
-        if (facingRight == false && (angle < 90 && angle > -90))
-        {
-            Flip();
-        }
-        else if (facingRight == true && (angle > 90 || angle <-90))
-        {
-            Flip();
-        }
+        	Vector2 lookDir = mousePos - (Vector2)firePoint.position;
+        	float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg;
+        	Debug.Log(angle);
+        	firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+	
+        	isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+	
+        	moveInput = Input.GetAxis("Horizontal");
+        	
+        	if (Input.GetKey(KeyCode.DownArrow) == false)
+        	{
+        	    rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        	    animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        	    animator.SetBool("isCrouching", false);
+        	    player.size = new Vector2(0.1845391f, 0.22387f);
+        	    player.offset = new Vector2(-0.01120692f, -0.04815573f);
+        	}
+        	else
+        	{
+        	    rb.velocity = new Vector2(moveInput * 0, rb.velocity.y); ;
+        	}
+	
+        	if (facingRight == false && (angle < 90 && angle > -90))
+        	{
+        	    Flip();
+        	}
+        	else if (facingRight == true && (angle > 90 || angle <-90))
+        	{
+        	    Flip();
+        	}
+    	}
     }
 
     void Update()
