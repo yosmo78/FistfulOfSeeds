@@ -154,7 +154,7 @@ public class logan_player_controller : MonoBehaviour
                 animator.SetBool("isCrouching", false);
             }
             
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                 animator.SetBool("isCrouching", true);
                 player.size = new Vector2(0.1845391f, 0.112f);
