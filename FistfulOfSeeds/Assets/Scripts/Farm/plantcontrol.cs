@@ -64,10 +64,10 @@ public class plantcontrol : MonoBehaviour
     		}
     	}
 
-        if(currentSeed == "sunflower" && currentTool == "scythe")
-        {
+        //if(currentSeed == "sunflower" && currentTool == "scythe")
+        //{
             
-        }
+        //}
 
     }
 
@@ -80,7 +80,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if((GMScript.currentTool == "sunflower") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
-    			&& GMScript.sunFlowerSeeds >= 0)
+    			&& GMScript.sunFlowerSeeds > 0)
     	{
     		GetComponent<SpriteRenderer>().sprite = sunFlower1;
     		currentSeed = "sunflower";
@@ -88,7 +88,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if((GMScript.currentTool == "carrot") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
-    			&& GMScript.carrotSeeds >= 0)
+    			&& GMScript.carrotSeeds > 0)
     	{
     		GetComponent<SpriteRenderer>().sprite = carrot1;
     		currentSeed = "carrot";
@@ -96,7 +96,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if((GMScript.currentTool == "potato") && 
     			(GetComponent<SpriteRenderer>().sprite == noPlantObj)
-    			&& GMScript.potatoSeeds >= 0)
+    			&& GMScript.potatoSeeds > 0)
     	{
     		GetComponent<SpriteRenderer>().sprite = potato1;
     		currentSeed = "potato";
@@ -104,7 +104,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if (GMScript.currentTool == "bucket")
     	{
-    		plotObj.GetComponent<SpriteRenderer>().color = new Color(127, 76, 12);
+    		plotObj.GetComponent<SpriteRenderer>().color = new Color(10, 10, 12);
     		watered = true;
     	}
     }
