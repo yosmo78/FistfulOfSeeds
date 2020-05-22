@@ -64,6 +64,11 @@ public class plantcontrol : MonoBehaviour
     		}
     	}
 
+        //if(currentSeed == "sunflower" && currentTool == "scythe")
+        //{
+            
+        //}
+
     }
 
     void OnMouseDown()
@@ -99,7 +104,7 @@ public class plantcontrol : MonoBehaviour
     	}
     	else if (GMScript.currentTool == "bucket")
     	{
-    		plotObj.GetComponent<SpriteRenderer>().color = new Color(127, 76, 12);
+    		plotObj.GetComponent<SpriteRenderer>().color = new Color(10, 10, 12);
     		watered = true;
     	}
     }
