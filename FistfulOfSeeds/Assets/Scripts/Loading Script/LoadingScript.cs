@@ -28,6 +28,7 @@ public class LoadingScript : MonoBehaviour
             {
                 FindObjectOfType<CameraFollow>().isFollowing = false;
                 collision.attachedRigidbody.bodyType = RigidbodyType2D.Static;
+                GameObject.Find("Main Camera").transform.position = new Vector3(0, 0, -10);
             }
             GlobalSceneChange.locationFrom = loadingName;
             GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
