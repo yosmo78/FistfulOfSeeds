@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabe6a22394e4ec49a0f924f8554838b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97cd3674d0423e744a50f1700c79d638, type: 3}
   m_Name: Inventory_Player
   m_EditorClassIdentifier: 
-  onInventoryItemsUpdated: {fileID: 11400000, guid: d41f6bbfbaf932a4e876c7ac8b9f3ee9,
+  onInventoryItemsUpdated: {fileID: 11400000, guid: cb5a201f7a491d84fba9a5d5731c602d,
     type: 2}
   testItemSlot:
-    item: {fileID: 11400000, guid: 594cda4cb8150154c9c10b98aed28af6, type: 2}
-    quantity: 100
+    item: {fileID: 11400000, guid: 6d0a85e2e2f038644a6c4650258e35b0, type: 2}
+    quantity: 4
