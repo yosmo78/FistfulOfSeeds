@@ -1,0 +1,32 @@
+farm seed interact with the world：
+ideas:
+1.grow consumables(potion,ammo(elemental),armor(shield),etc)  -- like making supply, but have a limit amount to carry
+2.unlock guns permanently -- grow them or simply just drop(unlock) them from boss
+3.grow monsters -- for example, there are kinds of chemicals that player can use to pollute the map(by dumping them into a river or sth), which gain monster's ability (difficulty,status,behaviors,rare drops,etc)
+
+duarbility?：no. ammo is enough. Basically using guns.
+
+flow - back and forth：
+1. the idea of Dark Soul: 
+for example, in two parallel path A-B-C and D-E-F (A,D are connected with the base), D unlock the path to B, B unlock E, so the player have to travel back and forth.
+and the shortcut can make player travel easier after every death and have to go back to like scene C or F.  
+However, this can also be easily solved by a teleport system.
+2. dungeon style:
+maps are not linear at all. Once you finish one map, it's done, unless the player want to farm seeds from them.
+In this case players aren't forced to go through the same scene over and over.
+But the reuse of the map is low.
+Maybe randomize map? lots of work
+
+enchant? craft?：
+1. upgrade/enchant weapon(mostly guns) -- nice, but won't it contradict with the ammo? (since the ammo is already enchanted).
+sample solution: 
+a. enchant guns to adapt and use the special ammo. like add-on modified components. increase fire rate, fire range, etc.
+b. seperate the upgrade for each kind of guns, like sniper, pistro, shot gun, lazer, rocket launcher.
+c. limit the number of upgrade a gun can hold, so player have to choose the one they need the most and spend the material each time. Also have the upper limit for upgrading.
+
+2. craft
+ideas:
+a. crossbreed seed -- ex: fire + ice bullet = streambust bullet (greatly increase bullet speed and fire range)
+make player discover secret contents by their own.
+same with other comsumables, like health potion + energy potion, etc
+b. 
