@@ -64,7 +64,6 @@ public class logan_player_controller : MonoBehaviour
         {
         	Vector2 lookDir = mousePos - (Vector2)firePoint.position;
         	float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg;
-        	Debug.Log(angle);
         	firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	
         	isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
