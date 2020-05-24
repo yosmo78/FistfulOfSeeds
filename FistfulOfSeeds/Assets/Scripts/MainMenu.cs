@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string sceneTo;
+    public string sceneToNewGame;
+    public string sceneToLoadGame;
     private logan_player_controller player;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class MainMenu : MonoBehaviour
         player.rb.bodyType = RigidbodyType2D.Dynamic;
         GlobalSceneChange.locationFrom = "MainMenu";
         GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneTo);
+        SceneManager.LoadScene(sceneToNewGame);
     }
 
     public void LoadGame()
