@@ -19,8 +19,8 @@ TagManager:
   - Background
   - Player
   - Bullet
-  - 
-  - 
+  - EnemyBullet
+  - CactusBossBullet
   - 
   - 
   - 
