@@ -1518,32 +1518,32 @@ PrefabInstance:
     - target: {fileID: 3739586406334531924, guid: 633586e87fdf4f344babde48a73ae714,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.90348876
       objectReference: {fileID: 0}
     - target: {fileID: 3739586406334531924, guid: 633586e87fdf4f344babde48a73ae714,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8.356883
       objectReference: {fileID: 0}
     - target: {fileID: 3739586406334531924, guid: 633586e87fdf4f344babde48a73ae714,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -96.09358
       objectReference: {fileID: 0}
     - target: {fileID: 3739586406334531924, guid: 633586e87fdf4f344babde48a73ae714,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3739586406334531924, guid: 633586e87fdf4f344babde48a73ae714,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3739586406334531924, guid: 633586e87fdf4f344babde48a73ae714,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3739586406334531924, guid: 633586e87fdf4f344babde48a73ae714,
         type: 3}
