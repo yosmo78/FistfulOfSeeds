@@ -48,7 +48,14 @@ public class enemy1Path : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        //2020/5/28 update
+        //alan: make it possible to change direction by any logic
+        if (health % 2 == 1)
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+        }
+        else { transform.Translate(Vector2.right * speed * Time.deltaTime); }
+        
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
 
