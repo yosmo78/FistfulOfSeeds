@@ -39,7 +39,8 @@ public class bullet : MonoBehaviour
         }
         try
         {
-            cactusBoss.TakeDamage(damage);
+        	if(cactusBoss != null)
+            	cactusBoss.TakeDamage(damage);
         }
         catch
         {
