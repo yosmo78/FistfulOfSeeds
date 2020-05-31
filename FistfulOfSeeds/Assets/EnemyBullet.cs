@@ -18,7 +18,8 @@ public class EnemyBullet : MonoBehaviour
         
         try
         {
-            player.Hurt();
+            if(player != null)
+                player.Hurt();
         }
         catch
         {

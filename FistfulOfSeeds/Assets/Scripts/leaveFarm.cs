@@ -31,6 +31,7 @@ public class leaveFarm : MonoBehaviour
         GMScript.write_farm_to_farm_data(GMScript.farm,GMScript.numberOfPlotsWidth,GMScript.numberOfPlotsHeight);
         
         GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
+        GMScript.healthUi.SetActive(true);
 
         SceneManager.LoadScene(sceneTo);
     }

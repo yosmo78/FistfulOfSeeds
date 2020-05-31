@@ -14,6 +14,8 @@ public class GMScript : MonoBehaviour
     public GameObject plant;
 	public static string currentTool = "none";
 
+    public static GameObject healthUi;
+
     public static int numberOfPlotsWidth = 2;
     public static int numberOfPlotsHeight = 2; 
 
@@ -190,6 +192,9 @@ public class GMScript : MonoBehaviour
         //Debug.Log("Ran Start");
 
         //TODO: make sure farm data will always be instanitated before farm starts up
+
+        healthUi = GameObject.Find("Health UI");
+        healthUi.SetActive(false);
 
         farm = init_farm(numberOfPlotsWidth,numberOfPlotsHeight,plotObj,plant);
         //call func below in leaveFarm.cs file
