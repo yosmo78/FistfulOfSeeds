@@ -82,6 +82,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -154,6 +155,7 @@ MonoBehaviour:
   health: 20
   speed: 0
   startDazedTime: 0
+  seed: {fileID: 4227631724651448625, guid: b9eb1469b3a6e0748acf87122a9a3083, type: 3}
 --- !u!70 &5319444191706666107
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

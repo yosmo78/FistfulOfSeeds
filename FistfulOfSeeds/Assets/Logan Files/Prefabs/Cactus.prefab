@@ -52,6 +52,7 @@ MonoBehaviour:
   health: 2
   speed: 0
   startDazedTime: 0.6
+  seed: {fileID: 4227631724651448625, guid: b9eb1469b3a6e0748acf87122a9a3083, type: 3}
 --- !u!114 &2338631994868449655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +86,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
