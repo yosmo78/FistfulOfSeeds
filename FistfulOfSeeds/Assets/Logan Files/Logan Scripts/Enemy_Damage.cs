@@ -41,6 +41,7 @@ public class Enemy_Damage : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(seed, transform.position, seed.transform.rotation);
         }
 
     }
