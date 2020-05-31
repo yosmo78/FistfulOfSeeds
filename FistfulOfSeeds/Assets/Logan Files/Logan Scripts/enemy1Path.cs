@@ -15,6 +15,8 @@ public class enemy1Path : MonoBehaviour
     //public GameObject bloodEffect;
 
     public Transform groundDetection;
+    [SerializeField] public GameObject seed;
+
 
     public void TakeDamage(int damage)
     {
@@ -46,6 +48,7 @@ public class enemy1Path : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(seed, transform.position, seed.transform.rotation);
         }
 
         //2020/5/28 update

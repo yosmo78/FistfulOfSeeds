@@ -83,6 +83,7 @@ MonoBehaviour:
   distance: 10
   startDazedTime: 0.6
   groundDetection: {fileID: 1921229670434628229}
+  seed: {fileID: 4227631724651448625, guid: b9eb1469b3a6e0748acf87122a9a3083, type: 3}
 --- !u!212 &1921229670435738055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97,6 +98,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
