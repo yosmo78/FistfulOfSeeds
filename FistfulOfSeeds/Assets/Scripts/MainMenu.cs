@@ -6,10 +6,12 @@ public class MainMenu : MonoBehaviour
     public string sceneToNewGame;
     public string sceneToLoadGame;
     private logan_player_controller player;
+
+    public GameObject healthUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+    	healthUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class MainMenu : MonoBehaviour
         player.rb.bodyType = RigidbodyType2D.Dynamic;
         GlobalSceneChange.locationFrom = "MainMenu";
         GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
+        healthUI.SetActive(true);
         SceneManager.LoadScene(sceneToNewGame);
     }
 

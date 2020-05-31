@@ -34,8 +34,7 @@ public class PlayerAttack : MonoBehaviour
         startPos = this.transform.position;
         healthRem = health;
         invinciTimeRem = invinciTime;
-        GameObject healthUi = GameObject.Find("Health UI");
-        DontDestroyOnLoad(healthUi);
+        //GameObject healthUi = GameObject.Find("Health UI");
     }
 
     // Update is called once per frame
