@@ -22,9 +22,9 @@ public class cactusBossAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        firePoint1.rotation = Quaternion.AngleAxis(0, Vector3.forward);
-        firePoint2.rotation = Quaternion.AngleAxis(0, Vector3.forward);
-        firePoint3.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+        firePoint1.rotation = Quaternion.AngleAxis(180, Vector3.forward);
+        firePoint2.rotation = Quaternion.AngleAxis(180, Vector3.forward);
+        firePoint3.rotation = Quaternion.AngleAxis(180, Vector3.forward);
         shootTime1 = timeBtwnShoot1;
         shootTime2 = timeBtwnShoot2;
         shootTime3 = timeBtwnShoot3;
