@@ -20,7 +20,8 @@ public class CactusBossBullet : MonoBehaviour
 
         try
         {
-            player.Hurt();
+            if(player != null)
+                player.Hurt();
         }
         catch
         {

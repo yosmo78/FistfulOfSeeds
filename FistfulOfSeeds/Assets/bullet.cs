@@ -20,7 +20,8 @@ public class bullet : MonoBehaviour
    
         try
         {
-           enemy1.TakeDamage(damage);
+            if(enemy1 != null)
+                enemy1.TakeDamage(damage);
         }
         catch
         {
@@ -28,7 +29,8 @@ public class bullet : MonoBehaviour
         }
         try
         {
-           enemy2.TakeDamage(damage);
+            if(enemy2 != null)
+                enemy2.TakeDamage(damage);
         }
         catch
         {
