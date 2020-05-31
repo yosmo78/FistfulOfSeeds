@@ -17,7 +17,8 @@ public class bullet : MonoBehaviour
         Physics2D.IgnoreLayerCollision(bulletLayer, cactusBossBulletLayer, true);
         enemy1Path enemy1 = collision.collider.GetComponent<enemy1Path>();
         Enemy_Damage enemy2 = collision.collider.GetComponent<Enemy_Damage>();
-   
+        CactusBossDamage cactusBoss = collision.collider.GetComponent<CactusBossDamage>();
+
         try
         {
            enemy1.TakeDamage(damage);
@@ -29,6 +30,14 @@ public class bullet : MonoBehaviour
         try
         {
            enemy2.TakeDamage(damage);
+        }
+        catch
+        {
+            Debug.LogError("enemy not found");
+        }
+        try
+        {
+            cactusBoss.TakeDamage(damage);
         }
         catch
         {
