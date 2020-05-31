@@ -10,6 +10,7 @@ public class Enemy_Damage : MonoBehaviour
     private float dazedTime;
     public float startDazedTime;
 
+    [SerializeField] public GameObject seed;
     public void TakeDamage(int damage)
     {
         //play a hurt sound
