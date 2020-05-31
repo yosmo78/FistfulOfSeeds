@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CactusBossDamage : MonoBehaviour
 {
@@ -47,7 +48,12 @@ public class CactusBossDamage : MonoBehaviour
         }
         if (health <= 0)
         {
+            FindObjectOfType<CameraFollow>().isFollowing = false;
+            GameObject.Find("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GameObject.Find("Main Camera").transform.position = new Vector3(0, 0, -10);
+            GlobalSceneChange.sceneFrom = SceneManager.GetActiveScene().name;
             Destroy(gameObject);
+            SceneManager.LoadScene("EndScene");
         }
 
     }
